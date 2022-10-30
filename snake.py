@@ -10,6 +10,9 @@ class Snake:
     distance = 20
 
     def __init__(self):
+        self.create_snake()
+
+    def create_snake(self):
         for position in self.start_position:
             self.add_new_segment(position)
 
@@ -45,6 +48,12 @@ class Snake:
 
     def extend(self):
         self.add_new_segment(self.segments[-1].position())
+
+    def reset_snake(self):
+        for seg in self.segments:
+            seg.goto(1000, 1000)
+        self.segments.clear()
+        self.create_snake()
 
 
 
